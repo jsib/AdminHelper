@@ -1,0 +1,100 @@
+﻿html {
+    font-family: Tahoma;
+}
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    font-size: 9pt;
+    text-align: center;
+    font-weight: normal;
+}
+
+div.rotate {
+    position: relative;
+    left: 9px;
+    writing-mode: tb-rl;
+    white-space: nowrap;
+    width:10px;
+    height:125px;
+    font-size:11pt;
+}
+
+td {
+    font-size: 10pt;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 12pt;
+}
+
+td.time {
+    font-size: 9pt;
+    padding: 0 3px;
+}
+
+td.on {
+    background: #95dd7c;
+}
+
+td.off {
+    background: #d03c3c;
+}
+
+td.bottom_border {
+    border-bottom: 2px solid;
+}
+
+.clear {
+    clear:both;
+}
+
+.left-column {
+    float:left;
+}
+
+.right-column {
+    float:left;
+    margin-top:0px;
+    margin-left:60px;
+    font-size:9pt;
+}
+
+.annot {
+    max-width: 500px;
+}

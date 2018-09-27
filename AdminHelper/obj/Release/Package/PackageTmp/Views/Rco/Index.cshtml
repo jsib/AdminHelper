@@ -1,0 +1,123 @@
+﻿@using System.Collections.Generic;
+@using System.Linq;
+@using System.Data;
+
+@{
+    ViewBag.Title = "Ias-Rco";
+    string sym = "";
+}
+
+<h2>Ias-Rco</h2>
+@{
+    int prev_hour = -1;
+    int hour = -1;
+}
+
+<meta http-equiv="Refresh" content="30" />
+
+<div class="left-column">
+    @*Table body*@
+    @{
+        int rows_number = ViewBag.Rows.Count;
+        int j = 0;
+    }
+
+    @foreach (var row in ViewBag.Rows)
+    {
+        DateTime date = row["date"];
+        hour = Convert.ToInt32(date.ToString("HH"));
+
+        @*New block with individual header line*@
+        if (prev_hour == -1 || (date.ToString("HH") == "23" && date.ToString("mm") == "55"))
+        {
+            @Html.Raw("<table>")
+
+            @*Table header*@
+            <tr><th rowspan="2"></th><th colspan="25">Номер сервера RCO</th></tr>
+            <tr>
+                @{
+                    for (int i = 1; i <= 25; i++)
+                    {
+                        <th>@i</th>
+                    }
+                }
+            </tr>
+
+            prev_hour = hour;
+            @Html.Raw("<br/>")
+        }
+
+        @*Separate every hour statistics*@
+        string td_bottom_border_class = "";
+        if (@date.ToString("mm") == "00")
+        {
+            td_bottom_border_class = "bottom_border";
+        }
+
+        <tr>
+            @{
+                string[] rcos = row["rco"].Split(';');
+
+                <td class="time @td_bottom_border_class">@date.ToString("HH:mm")</td>
+
+                for (int i = 1; i <= 25; i++)
+                {
+                    string si = Convert.ToString(i);
+                    bool ex = Array.Exists(rcos, element => element == si);
+
+                    if (ex)
+                    {
+                        sym = "on";
+                    }
+                    else
+                    {
+                        sym = "off";
+                    }
+
+                    <td class="@sym @td_bottom_border_class"></td>
+                }
+            }
+        </tr>
+        j++;
+    }
+    </table>
+</div>
+<div class="right-column">
+    <h3>Состояние сервисов</h3>
+    @{
+        int prev_step = -1;
+        int step_change = 0;
+    }
+    @{
+        foreach (var row in ViewBag.Rows1)
+        {
+            if (Convert.ToInt32(row["step"]) == -1 || Convert.ToInt32(row["step"]) != prev_step)
+            {
+                if (step_change == 3)
+                {
+                    break;
+                }
+
+                if (Convert.ToInt32(row["step"]) != -1) {@Html.Raw("<br/>")}
+                
+                <b>@row["date"]</b><br />
+                prev_step = Convert.ToInt32(row["step"]);
+                step_change++;
+            }
+
+            //Special output for StartPending status
+            if (row["code"] == "StartPending")
+            {
+                string process_size = Convert.ToString(row["process_size"] / 1024) + "Mb";
+
+                <span>@row["server"] : @row["code"] : @process_size : @row["start_duration"]min</span><br />
+            }
+            else
+            {
+                <span>@row["server"] : @row["code"]</span><br />
+            }
+        }
+    }
+
+</div>
+<div class="clear"></div>

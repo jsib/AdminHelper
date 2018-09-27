@@ -1,0 +1,135 @@
+﻿@using System.Collections.Generic;
+@using System.Linq;
+@using System.Data;
+@using AdminHelper.Controllers;
+
+@{
+    ViewBag.Title = "Bzz-Rco";
+    string sym = "";
+}
+
+<h2>Bzz-Rco</h2>
+@{
+    int prev_hour = -1;
+    int hour = -1;
+}
+
+<meta http-equiv="Refresh" content="30" />
+
+<div class="left-column">
+    @*Table body*@
+    @{
+        int rows_number = ViewBag.Rows.Count;
+        int j = 0;
+    }
+
+    @foreach (var row in ViewBag.Rows)
+    {
+        DateTime date = row["date"];
+        hour = Convert.ToInt32(date.ToString("HH"));
+
+        @*New block with individual header line*@
+        if (prev_hour == -1 || (date.ToString("HH") == "23" && date.ToString("mm") == "55"))
+        {
+            @Html.Raw("<table>")
+
+            @*Table header*@
+            <tr><th rowspan="2"></th><th colspan="26">Номер сервера RCO</th></tr>
+            <tr>
+                @{
+                    foreach (Server s in ViewBag.Servers)
+                    {
+                        <th><div class="rotate">@s.Name (@s.ConsumersNumber)</div></th>
+                    }
+                }
+            </tr>
+
+            prev_hour = hour;
+            @Html.Raw("<br/>")
+        }
+
+        @*Separate every hour statistics*@
+        string td_bottom_border_class = "";
+        if (@date.ToString("mm") == "00")
+        {
+            td_bottom_border_class = "bottom_border";
+        }
+
+            <tr>
+                @{
+                    string[] rcos = row["rco"].Split(';');
+
+                    <td class="time @td_bottom_border_class">@date.ToString("HH:mm")</td>
+
+                    foreach (Server s in ViewBag.Servers)
+                    {
+                        string si = s.Name;
+
+                        int el_num = rcos.Where(element => element.StartsWith(si, StringComparison.CurrentCultureIgnoreCase)).Count();
+
+                        string cons_num = "";
+
+                        if (s.ConsumersNumber == el_num)
+                        {
+                            sym = "on";
+                        }
+                        else
+                        {
+                            sym = "off";
+                            cons_num = el_num.ToString();
+                        }
+
+                        <td class="@sym @td_bottom_border_class">@cons_num</td>
+                    }
+                }
+            </tr>
+        j++;
+    }
+    </table>
+</div>
+<div class="right-column">
+    <div class="annot">
+        <br/>
+        <u>Примечание:</u>
+        <br/>1. Числами отмечено количество активных консъюмеров для каждого отдельного сервера в момент опроса сервера<br/>
+        2. Числа в заголовках после названия серверов - всего консъюмеров для данного сервера
+    </div>
+            @*<h3>Состояние сервисов</h3>
+    @{
+        int prev_step = -1;
+        int step_change = 0;
+    }
+    @{
+        foreach (var row in ViewBag.Rows1)
+        {
+            if (Convert.ToInt32(row["step"]) == -1 || Convert.ToInt32(row["step"]) != prev_step)
+            {
+                if (step_change == 3)
+                {
+                    break;
+                }
+
+                if (Convert.ToInt32(row["step"]) != -1)
+                {@Html.Raw("<br/>")}
+
+            <b>@row["date"]</b><br />
+            prev_step = Convert.ToInt32(row["step"]);
+            step_change++;
+        }
+
+        //Special output for StartPending status
+        if (row["code"] == "StartPending")
+        {
+            string process_size = Convert.ToString(row["process_size"] / 1024) + "Mb";
+
+            <span>@row["server"] : @row["code"] : @process_size : @row["start_duration"]min</span><br />
+        }
+        else
+        {
+            <span>@row["server"] : @row["code"]</span><br />
+        }
+    }
+    }*@
+
+</div>
+<div class="clear"></div>
