@@ -1,0 +1,14 @@
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\HealthyRcoBzz.exe.config
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\HealthyRcoBzz.exe
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\HealthyRcoBzz.pdb
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\Newtonsoft.Json.dll
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\Newtonsoft.Json.xml
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.csprojAssemblyReference.cache
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.csproj.CoreCompileInputs.cache
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.csproj.CopyComplete
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.exe
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.pdb
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\HealthyRcoBzz.exe.manifest
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\bin\Debug\HealthyRcoBzz.application
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.exe.manifest
+C:\C#\proj\HealthyRcoBzz\HealthyRcoBzz\obj\Debug\HealthyRcoBzz.application

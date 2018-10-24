@@ -1,0 +1,14 @@
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\HealthyRco.exe.config
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\HealthyRco.exe
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\HealthyRco.pdb
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\Newtonsoft.Json.dll
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\Newtonsoft.Json.xml
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.csprojAssemblyReference.cache
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.csproj.CoreCompileInputs.cache
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.csproj.CopyComplete
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.exe
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.pdb
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\HealthyRco.exe.manifest
+C:\C#\proj\HealthyRco\HealthyRco\bin\Debug\HealthyRco.application
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.exe.manifest
+C:\C#\proj\HealthyRco\HealthyRco\obj\Debug\HealthyRco.application
